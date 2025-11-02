@@ -1,4 +1,4 @@
-# **Project Title:** Sports Betting Strategy Analyzer  
+# **Project Title:** A Deeper Dive Into The World of Sports Betting 
 
 **Category:** Business & Finance Tools / Statistical Analysis Tools  
 
