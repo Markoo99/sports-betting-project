@@ -1,0 +1,14 @@
+✅ Data loaded successfully
+Shape: (37104, 12)
+
+Columns: ['date', 'season', 'team', 'home/visitor', 'opponent', 'score', 'opponentScore', 'moneyLine', 'opponentMoneyLine', 'total', 'spread', 'secondHalfTotal']
+
+First 5 rows:
+         date  season         team  ...  total spread  secondHalfTotal
+0  2007-10-30    2008         Utah  ...  212.0    1.0            105.5
+1  2007-10-30    2008    LA Lakers  ...  199.0    5.0             99.0
+2  2007-10-30    2008      Houston  ...  199.0   -5.0             99.0
+3  2007-10-30    2008  San Antonio  ...  189.5  -13.0             95.0
+4  2007-10-30    2008     Portland  ...  189.5   13.0             95.0
+
+[5 rows x 12 columns]

@@ -1,0 +1,11 @@
+Model performance on test set (for reference):
+  accuracy: 0.6851
+  log_loss: 0.5914
+  roc_auc: 0.7502
+
+📈 Backtest results
+  Edge threshold: 0.020
+  Number of bets: 404
+  Hit rate:       0.097
+  Total profit:   -67.90 units
+  ROI per bet:    -0.168 units

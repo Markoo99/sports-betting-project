@@ -1,0 +1,8 @@
+✅ Data preprocessed
+Clean shape: (37102, 15)
+
+✅ Logistic regression trained
+Metrics on test set:
+  accuracy: 0.6851
+  log_loss: 0.5914
+  roc_auc: 0.7502
