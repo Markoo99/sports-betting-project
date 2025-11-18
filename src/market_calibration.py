@@ -68,10 +68,10 @@ def run_calibration(n_bins: int = 10) -> None:
     Load data, preprocess it, and print calibration statistics.
     This focuses on bookmaker implied probabilities (team_prob).
     """
-    print("✅ Loading raw data...")
+    print(" Loading raw data...")
     df_raw = load_raw_data()
 
-    print("✅ Preprocessing data...")
+    print(" Preprocessing data...")
     df = preprocess_data(df_raw)
 
     print("\nData shape after preprocessing:", df.shape)
@@ -90,7 +90,6 @@ def run_calibration(n_bins: int = 10) -> None:
     print(calib_table.to_string(index=False))
 
     # Ideal calibration line would have win_rate ≈ mean_prob in every bin.
-    # Let’s also compute a simple summary metric.
     score = brier_score(df, prob_col="team_prob", outcome_col="win")
     print(f"\nBrier score (bookmaker implied probabilities vs outcome): {score:.4f}")
 
