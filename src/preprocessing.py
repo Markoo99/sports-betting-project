@@ -1,1 +1,45 @@
+import pandas as pd
+import numpy as np
+
+
+def american_to_probability(odds: float) -> float:
+    """
+    Convert American moneyline odds to implied probability.
+    """
+    if odds > 0:
+        return 100 / (odds + 100)
+    else:
+        return -odds / (-odds + 100)
+
+
+def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Clean NBA betting dataset:
+    - Create outcome variable (1 = win, 0 = loss)
+    - Convert moneyline odds to probabilities
+    - Drop rows with missing or invalid data
+    """
+
+    df = df.copy()
+
+    # Create binary target: did the team win?
+    df["win"] = (df["score"] > df["opponentScore"]).astype(int)
+
+    # Convert moneyline odds to probabilities
+    df["team_prob"] = df["moneyLine"].apply(american_to_probability)
+    df["opp_prob"] = df["opponentMoneyLine"].apply(american_to_probability)
+
+    # Remove rows with missing probabilities (if any)
+    df = df.dropna(subset=["team_prob", "opp_prob", "win"])
+
+    return df
+
+
+if __name__ == "__main__":
+    from data_loading import load_data
+
+    df_raw = load_data()
+    df_clean = preprocess_data(df_raw)
+    print(df_clean.head())
+    print(f"Shape after preprocessing: {df_clean.shape}")
 
