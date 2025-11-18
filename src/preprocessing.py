@@ -3,14 +3,14 @@ import numpy as np
 
 
 def american_to_probability(odds: float) -> float:
-    """
-    Convert American moneyline odds to implied probability.
-    """
-    if odds > 0:
-        return 100 / (odds + 100)
-    else:
-        return -odds / (-odds + 100)
-
+    if odds is None or pd.isna(odds) or odds == 0 
+        return float('nan')
+    try:
+        if odds > 0:
+            return 100 / (odds + 100)
+        else:
+            return -odds / (-odds + 100)
+""" Convert the American moneyline odds to implied probabilities taking into account possible ZeroDivisionError """
 
 def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     """
