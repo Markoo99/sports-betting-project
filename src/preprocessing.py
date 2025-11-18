@@ -42,4 +42,17 @@ if __name__ == "__main__":
     df_clean = preprocess_data(df_raw)
     print(df_clean.head())
     print(f"Shape after preprocessing: {df_clean.shape}")
+if __name__ == "__main__":
+    # This part is only run when you execute:
+    #   python -m src.preprocessing
+    from src.data_loading import load_raw_data
+
+    df_raw = load_raw_data()
+    df_clean = preprocess_data(df_raw)
+
+    print("✅ Preprocessing finished")
+    print("Raw shape:", df_raw.shape)
+    print("Clean shape:", df_clean.shape)
+    print("\nPreview of cleaned data:")
+    print(df_clean.head())
 
