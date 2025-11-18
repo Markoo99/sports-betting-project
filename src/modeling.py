@@ -1,0 +1,95 @@
+from typing import Tuple, Dict
+
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, log_loss, roc_auc_score
+from sklearn.model_selection import train_test_split
+
+from src.data_loading import load_raw_data
+from src.preprocessing import preprocess_data
+
+
+FEATURE_COLUMNS = ["team_prob", "opp_prob", "spread", "total"]
+
+
+def make_feature_matrix(df: pd.DataFrame) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Build the feature matrix X and target vector y from the preprocessed data.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Preprocessed dataframe with columns in FEATURE_COLUMNS and 'win'.
+
+    Returns
+    -------
+    X : np.ndarray
+        Feature matrix of shape (n_samples, n_features).
+    y : np.ndarray
+        Target vector of shape (n_samples,).
+    """
+    X = df[FEATURE_COLUMNS].values
+    y = df["win"].values
+    return X, y
+
+
+def train_logistic_regression(
+    X: np.ndarray, y: np.ndarray
+) -> Tuple[LogisticRegression, Dict[str, float]]:
+    """
+    Train a logistic regression classifier and return the fitted model and metrics.
+
+    Parameters
+    ----------
+    X : np.ndarray
+        Feature matrix.
+    y : np.ndarray
+        Target vector.
+
+    Returns
+    -------
+    model : LogisticRegression
+        Fitted logistic regression model.
+    metrics : dict
+        Dictionary with accuracy, log_loss, and roc_auc on the test set.
+    """
+    X_train, X_test, y_train, y_test = train_test_split(
+        X,
+        y,
+        test_size=0.3,
+        random_state=42,
+        stratify=y,
+    )
+
+    model = LogisticRegression(max_iter=1000)
+    model.fit(X_train, y_train)
+
+    # Predictions and probabilities
+    y_pred = model.predict(X_test)
+    y_proba = model.predict_proba(X_test)[:, 1]
+
+    metrics: Dict[str, float] = {
+        "accuracy": float(accuracy_score(y_test, y_pred)),
+        "log_loss": float(log_loss(y_test, y_proba)),
+        "roc_auc": float(roc_auc_score(y_test, y_proba)),
+    }
+
+    return model, metrics
+
+
+if __name__ == "__main__":
+    # Full pipeline: load data -> preprocess -> build features -> train model
+    df_raw = load_raw_data()
+    df_clean = preprocess_data(df_raw)
+
+    print("✅ Data preprocessed")
+    print("Clean shape:", df_clean.shape)
+
+    X, y = make_feature_matrix(df_clean)
+    model, metrics = train_logistic_regression(X, y)
+
+    print("\n✅ Logistic regression trained")
+    print("Metrics on test set:")
+    for name, value in metrics.items():
+        print(f"  {name}: {value:.4f}")
