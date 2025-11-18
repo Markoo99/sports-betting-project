@@ -1,0 +1,23 @@
+Train size: 29681  |  Test size: 7421
+
+ Training logistic regression model...
+
+================ MARKET EFFICIENCY ANALYSIS ================
+All metrics on the SAME test set of games.
+
+Bookmaker implied probabilities vs outcomes
+  Accuracy      :  0.6782
+  Brier score   :  0.2051
+  Log-loss      :  0.5960
+  Sharpness (std of p):  0.2260
+
+Logistic regression model vs outcomes
+  Accuracy      :  0.6806
+  Brier score   :  0.2049
+  Log-loss      :  0.5953
+  Sharpness (std of p):  0.2188
+
+Interpretation hints:
+  • LOWER Brier and log-loss = better probabilistic predictions.
+  • HIGHER sharpness = more confident probabilities.
+  • If model beats bookmaker on Brier/log-loss, there may be exploitable signal.
