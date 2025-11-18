@@ -14,11 +14,18 @@ FEATURE_COLUMNS = ["team_prob", "opp_prob", "spread", "total"]
 
 
 def american_to_decimal(odds: float) -> float:
-    if odds > 0:
-        return 1.0 + odds / 100.0
-    else:
-        return 1.0 + 100.0 / (-odds)
-    """ Converts American moneyline odds to decimal odds """
+    if odds is None or pd.isna(odds):
+        return float('nan')
+    if odds == 0:
+        return float('nan')
+    try:
+        if odds > 0:
+            return 1 + (odds / 100)
+        else:
+            return 1 + (100.0 / abs(odds))
+    except ZeroDivisionError:
+        return float('nan')
+    """ Converts American moneyline odds to decimal odds avoiding the Zero Division Error """
 
 def make_feature_matrix(df: pd.DataFrame) -> Tuple[np.ndarray, np.ndarray]:
     X = df[FEATURE_COLUMNS].values
