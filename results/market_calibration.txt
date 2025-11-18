@@ -1,0 +1,30 @@
+✅ Loading raw data...
+✅ Preprocessing data...
+
+Data shape after preprocessing: (37102, 15)
+Columns: ['date', 'season', 'team', 'home/visitor', 'opponent', 'score', 'opponentScore', 'moneyLine', 'opponentMoneyLine', 'total', 'spread', 'secondHalfTotal', 'win', 'team_prob', 'opp_prob']
+
+ Computing calibration table for bookmaker implied probabilities...
+
+Calibration table (per probability bucket):
+      bin  bin_lower  bin_upper  mean_prob  win_rate  count
+0.00-0.10        0.0        0.1   0.076376  0.066667    780
+0.10-0.20        0.1        0.2   0.159701  0.159410   2848
+0.20-0.30        0.2        0.3   0.256421  0.241877   3878
+0.30-0.40        0.3        0.4   0.354821  0.350681   5361
+0.40-0.50        0.4        0.5   0.453948  0.440312   5135
+0.50-0.60        0.5        0.6   0.560864  0.540967   4821
+0.60-0.70        0.6        0.7   0.649266  0.614082   4900
+0.70-0.80        0.7        0.8   0.748362  0.719489   4777
+0.80-0.90        0.8        0.9   0.850772  0.820529   3098
+0.90-1.00        0.9        1.0   0.938653  0.910904   1504
+
+Brier score (bookmaker implied probabilities vs outcome): 0.2026
+
+Average implied win probability: 0.519
+Actual overall win rate:        0.500
+
+Interpretation hints:
+- If win_rate is consistently below mean_prob, bookmakers are overestimating chances (odds too short).
+- If win_rate is consistently above mean_prob, bookmakers are underestimating chances (odds too long).
+- If lines are close, the market is well calibrated.
