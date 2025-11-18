@@ -3,7 +3,7 @@ import numpy as np
 
 
 def american_to_probability(odds: float) -> float:
-    if odds is None or pd.isna(odds) or odds == 0 
+    if odds is None or pd.isna(odds) or odds == 0 : 
         return float('nan')
     try:
         if odds > 0:
