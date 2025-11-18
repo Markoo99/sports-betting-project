@@ -1,0 +1,13 @@
+✅ Preprocessing finished
+Raw shape: (37104, 12)
+Clean shape: (37102, 15)
+
+Preview of cleaned data:
+         date  season         team  ... win team_prob  opp_prob
+0  2007-10-30    2008         Utah  ...   1  0.500000  0.545455
+1  2007-10-30    2008    LA Lakers  ...   0  0.344828  0.696970
+2  2007-10-30    2008      Houston  ...   1  0.696970  0.344828
+3  2007-10-30    2008  San Antonio  ...   1  0.933333  0.100000
+4  2007-10-30    2008     Portland  ...   0  0.100000  0.933333
+
+[5 rows x 15 columns]
