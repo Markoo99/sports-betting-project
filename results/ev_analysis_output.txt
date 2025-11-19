@@ -1,0 +1,13 @@
+Model performance on test set (for reference):
+  accuracy: 0.6851
+  log_loss: 0.5914
+  roc_auc: 0.7502
+
+ EV analysis for selected bets
+  Number of bets:       404
+  Hit rate:             0.097
+  Avg EV (model):       0.3972 units
+  Avg EV (market):      -0.0000 units
+  Avg realized return:  -0.1681 units
+
+💾 Detailed bet-level results saved to: results/ev_bets_edge_0.020.csv
