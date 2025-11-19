@@ -6,7 +6,7 @@ import os
 
 def load_data():
     """Load the cleaned preprocessed dataset."""
-    df = pd.read_csv("data/cleaned_data.csv")
+    df = pd.read_csv("data/oddsData.csv")
     return df
 
 def train_model(df):
