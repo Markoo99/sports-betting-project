@@ -6,7 +6,7 @@ import os
 
 def load_data() -> pd.DataFrame:
     """Load the cleaned preprocessed dataset."""
-    df_raw = load_raw_data() # this will read the data 
+    df_raw = load_data() # this will read the data 
     df_clean = preprocess_data(df_raw) # this is meant to add all the necessary columns such as team_prob, win,  opp_prob, etc.
     return df_clean
 def train_model(df):
