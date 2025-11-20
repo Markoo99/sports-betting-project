@@ -1,0 +1,50 @@
+Loading cleaned data and training logistic regression model.
+
+================ CALIBRATION TESTS (Hosmer–Lemeshow) ================
+
+Bookmaker probabilities:
+  HL statistic : 51.245
+  p-value      : 0.0000
+
+Model probabilities:
+  HL statistic : 31.843
+  p-value      : 0.0001
+
+================ PAIRED METRIC TESTS (Book vs Model) ================
+
+Brier score (lower is better):
+  Bookmaker : 0.205073
+  Model     : 0.204896
+  Mean diff (Book - Model): 0.000177
+  t-statistic: 0.713
+  p-value    : 0.4759
+
+Log-loss (lower is better):
+  Bookmaker : 0.595952
+  Model     : 0.595383
+  Mean diff (Book - Model): 0.000569
+  t-statistic: 0.647
+  p-value    : 0.5177
+
+================ ROI SIGNIFICANCE FOR EV STRATEGIES ================
+
+ev_bets_edge_0.005.csv:
+  Number of bets : 35902
+  Mean profit/bet: -0.966206
+  t-statistic    : -61.419
+  p-value        : 0.0000
+
+ev_bets_edge_0.010.csv:
+  Number of bets : 29638
+  Mean profit/bet: -1.063023
+  t-statistic    : -58.025
+  p-value        : 0.0000
+
+ev_bets_edge_0.020.csv:
+  Number of bets : 18985
+  Mean profit/bet: -1.241566
+  t-statistic    : -47.457
+  p-value        : 0.0000
+
+Use these p-values and effect sizes to discuss market efficiency.
+
