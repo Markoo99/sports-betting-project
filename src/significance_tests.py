@@ -8,18 +8,19 @@ from sklearn.metrics import log_loss, brier_score_loss
 from scipy import stats
 # Data + model setup:
 def load_clean_data() -> pd.DataFrame:
-  """ 
-  This loads the preprocessed dataset from the preprocessing file. We need the following columns:
-        - team_prob: bookmaker implied probability for the team we are tracking 
+    """
+    This loads the preprocessed dataset from the preprocessing file. We need the following columns:
+        - team_prob: bookmaker implied probability for the team we are tracking
         - opp_prob: opponent implied probability
-        - win: 1 if team won, 0 if opponent won 
-  """
+        - win: 1 if team won, 0 if opponent won
+    """
     df = pd.read_csv("data/cleaned_data.csv")
     required_cols = {"team_prob", "opp_prob", "win"}
     missing = required_cols - set(df.columns)
     if missing:
-      raise ValueError(f"cleaned_data.csv is missing columns: {missing}")
+        raise ValueError(f"cleaned_data.csv is missing columns: {missing}")
     return df
+
 def train_logistic_model(df: pd.DataFrame) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
   """ Train a simple logistic regression model and return test-set probabilities """
     feature_cols = ["team_prob", "opp_prob"]
