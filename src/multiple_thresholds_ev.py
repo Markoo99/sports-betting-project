@@ -4,7 +4,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import log_loss
 import os
 
-def load_data() -< pd.DataFrame:
+def load_data() -> pd.DataFrame:
     """Load the cleaned preprocessed dataset."""
     df_raw = load_raw_data() # this will read the data 
     df_clean = preprocess_data(df_raw) # this is meant to add all the necessary columns such as team_prob, win,  opp_prob, etc.
