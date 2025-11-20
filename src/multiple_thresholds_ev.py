@@ -68,7 +68,6 @@ def run_multi_threshold_ev() -> None:
     df, model = train_model(df)
 
     thresholds = [0.005, 0.01, 0.02]
-    run_multi_threshold_ev(df, model, thresholds) #this essentially evaluates the profitability of the strategy at each threshold level
     results = []
 
 
