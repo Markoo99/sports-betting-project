@@ -4,11 +4,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import log_loss
 import os
 
-def load_data():
+def load_data() -< pd.DataFrame:
     """Load the cleaned preprocessed dataset."""
-    df = pd.read_csv("data/oddsData.csv")
-    return df
-
+    df_raw = load_raw_data() # this will read the data 
+    df_clean = preprocess_data(df_raw) # this is meant to add all the necessary columns such as team_prob, win,  opp_prob, etc.
+    return df_clean
 def train_model(df):
     """Train logistic regression using same features as earlier."""
     X = df[["team_prob"]]  # model uses implied probs to calibrate
