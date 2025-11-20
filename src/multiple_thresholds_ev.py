@@ -6,9 +6,7 @@ import os
 
 def load_data() -> pd.DataFrame:
     """Load the cleaned preprocessed dataset."""
-    df_raw = load_data() # this will read the data 
-    df_clean = preprocess_data(df_raw) # this is meant to add all the necessary columns such as team_prob, win,  opp_prob, etc.
-    return df_clean
+    return pd.read_csv("data/cleaned_data.csv")
 def train_model(df):
     """Train logistic regression using same features as earlier."""
     X = df[["team_prob"]]  # model uses implied probs to calibrate
@@ -63,19 +61,18 @@ def compute_ev_for_threshold(df, threshold):
         "realized_return": bets["profit"].mean()
     }
 
-def run_multi_threshold_ev():
+def run_multi_threshold_ev() -> None:
     os.makedirs("results", exist_ok=True)
 
     df = load_data()
     df, model = train_model(df)
 
     thresholds = [0.005, 0.01, 0.02]
+    run_multi_threshold_analysis(df, model, thresholds) #this essentially evaluates the profitability of the strategy at each threshold level
     results = []
 
-    print("\nRunning multi-threshold EV analysis...\n")
 
     for t in thresholds:
-        print(f"→ Evaluating threshold {t}...")
         res = compute_ev_for_threshold(df, t)
         results.append(res)
 
@@ -83,7 +80,6 @@ def run_multi_threshold_ev():
     summary_path = "results/ev_threshold_summary.txt"
     with open(summary_path, "w") as f:
         f.write("EV SUMMARY ACROSS THRESHOLDS\n")
-        f.write("=================================\n\n")
         for r in results:
             f.write(f"Threshold: {r['threshold']}\n")
             f.write(f"Number of bets: {r['num_bets']}\n")
