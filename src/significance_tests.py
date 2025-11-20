@@ -8,7 +8,8 @@ from sklearn.metrics import log_loss, brier_score_loss
 from scipy import stats
 # Data + model setup:
 def load_clean_data() -> pd.DataFrame:
-  """ This loads the preprocessed dataset from the preprocessing file. We need the following columns:
+  """ 
+  This loads the preprocessed dataset from the preprocessing file. We need the following columns:
         - team_prob: bookmaker implied probability for the team we are tracking 
         - opp_prob: opponent implied probability
         - win: 1 if team won, 0 if opponent won 
