@@ -11,7 +11,8 @@ def load_clean_data() -> pd.DataFrame:
   """ This loads the preprocessed dataset from the preprocessing file. We need the following columns:
         - team_prob: bookmaker implied probability for the team we are tracking 
         - opp_prob: opponent implied probability
-        - win: 1 if team won, 0 if opponent won """
+        - win: 1 if team won, 0 if opponent won 
+  """
     df = pd.read_csv("data/cleaned_data.csv")
     required_cols = {"team_prob", "opp_prob", "win"}
     missing = required_cols - set(df.columns)
