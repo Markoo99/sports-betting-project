@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from src.significance_tests import (
+from src.simple_model.significance_tests import (
     load_clean_data,
     train_logistic_model,
     hosmer_lemeshow,
