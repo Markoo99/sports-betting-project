@@ -4,8 +4,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, log_loss, brier_score_loss
 
-from src.data_loading import load_raw_data
-from src.preprocessing import preprocess_data
+from src.simple_model.data_loading import load_raw_data
+from src.simple_model.preprocessing import preprocess_data
 
 
 def run_efficiency_analysis() -> None:
