@@ -1,0 +1,40 @@
+ TRAIN METRICS 
+Accuracy:    0.6844
+ROC AUC:     0.7549
+Brier score: 0.2009
+Log loss:    0.5858
+
+ TEST METRICS 
+Accuracy:    0.6774
+ROC AUC:     0.7441
+Brier score: 0.2049
+Log loss:    0.5949
+
+Saved per-game predictions to: data/advanced_logit_predictions.csv
+\ TOP POSITIVE / NEGATIVE COEFFICIENTS 
+               feature      coef
+5           prob_logit  0.662200
+36      team_Minnesota -0.305147
+69      opp_New Jersey  0.289769
+3            prob_diff  0.271414
+9          opp_prob_sq -0.252309
+37     team_New Jersey -0.216565
+68       opp_Minnesota  0.202421
+12    spread_prob_like -0.198755
+2             opp_prob -0.183707
+59         opp_Detroit  0.168560
+33        team_Memphis  0.164456
+27        team_Detroit -0.151225
+53        opp_Brooklyn -0.131525
+72   opp_Oklahoma City -0.129119
+40  team_Oklahoma City  0.123906
+78     opp_San Antonio -0.118254
+76        opp_Portland -0.116227
+7          is_favorite -0.107504
+46    team_San Antonio  0.105599
+50     team_Washington -0.104786
+20         team_Boston  0.104785
+39       team_New York -0.101633
+79         opp_Seattle  0.098466
+18      is_late_season -0.097803
+6          book_margin -0.096000
