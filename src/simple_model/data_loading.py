@@ -4,30 +4,14 @@ from typing import Union
 import pandas as pd
 
 
-# Default path to your odds data
+# Default path to the odds data
 DATA_PATH = Path("data") / "oddsData.csv"
 
 
 def load_raw_data(path: Union[str, Path] = DATA_PATH) -> pd.DataFrame:
     """
     Load the raw NBA odds dataset from a CSV file.
-
-    Parameters
-    ----------
-    path : str or Path, optional
-        Path to the CSV file. Defaults to DATA_PATH ("data/oddsData.csv").
-
-    Returns
-    -------
-    pd.DataFrame
-        Loaded data as a pandas DataFrame.
-
-    Raises
-    ------
-    FileNotFoundError
-        If the CSV file does not exist at the given path.
-    ValueError
-        If the loaded DataFrame is empty.
+    
     """
     csv_path = Path(path)
 
@@ -45,7 +29,7 @@ def load_raw_data(path: Union[str, Path] = DATA_PATH) -> pd.DataFrame:
 if __name__ == "__main__":
     # Simple manual check: run this file to see basic info about the data
     df = load_raw_data()
-    print("✅ Data loaded successfully")
+    print("Data loaded successfully")
     print("Shape:", df.shape)
     print("\nColumns:", df.columns.tolist())
     print("\nFirst 5 rows:")
