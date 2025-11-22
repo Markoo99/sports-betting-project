@@ -10,7 +10,7 @@ from sklearn.metrics import (
     log_loss,
 )
 
-from build_advanced_features import build_advanced_features
+from src.advanced_model.prep import build_advanced_features
 
 
 def train_test_split_indices(y, test_size=0.2, random_state=42):
