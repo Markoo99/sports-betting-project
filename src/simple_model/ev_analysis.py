@@ -3,9 +3,9 @@ from typing import Dict, Tuple
 import numpy as np
 import pandas as pd
 
-from src.data_loading import load_raw_data
-from src.preprocessing import preprocess_data
-from src.backtesting import train_model_for_backtest, american_to_decimal
+from src.simple_model.data_loading import load_raw_data
+from src.simple_model.preprocessing import preprocess_data
+from src.simple_model.backtesting import train_model_for_backtest, american_to_decimal
 
 
 def compute_ev_for_bets(edge_threshold: float = 0.02) -> pd.DataFrame:
@@ -108,7 +108,7 @@ def run_ev_analysis(edge_threshold: float = 0.02) -> None:
     # Save detailed bets to results folder
     output_path = "results/ev_bets_edge_{:.3f}.csv".format(edge_threshold)
     bets.to_csv(output_path, index=False)
-    print(f"\n💾 Detailed bet-level results saved to: {output_path}")
+    print(f"\n Detailed bet-level results saved to: {output_path}")
 
 
 if __name__ == "__main__":
