@@ -6,8 +6,8 @@ import pandas as pd
 from sklearn.metrics import brier_score_loss
 import matplotlib.pyplot as plt
 
-from src.data_loading import load_raw_data
-from src.preprocessing import preprocess_data
+from src.simple_model.data_loading import load_raw_data
+from src.simple_model.preprocessing import preprocess_data
 
 
 
