@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 
-from src.data_loading import load_raw_data
-from src.preprocessing import preprocess_data
+from src.simple_model.data_loading import load_raw_data
+from src.simple_model.preprocessing import preprocess_data
 
 
 def compute_calibration_table(
